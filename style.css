@@ -1,0 +1,94 @@
+/* Aequor — pagine legali.
+   Stile sobrio, coerente con l'app: fondo scuro, testo leggibile, misura di
+   lettura contenuta. Nessuna risorsa esterna: le pagine si aprono offline. */
+
+:root {
+  --background: #0A0A0A;
+  --card: #1A1A1A;
+  --text: #FFFFFF;
+  --text-secondary: #A1A1A6;
+  --accent: #0A84FF;
+  --accent-dark: #0055CC;
+  --border: rgba(255, 255, 255, 0.10);
+  --radius: 20px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #F2F2F7;
+    --card: #FFFFFF;
+    --text: #000000;
+    --text-secondary: #6C6C70;
+    --border: rgba(0, 0, 0, 0.08);
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.wrap { max-width: 720px; margin: 0 auto; padding: 48px 24px 96px; }
+
+header { margin-bottom: 40px; }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.logo-mark {
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+}
+
+h1 { font-size: 34px; line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 10px; }
+h2 { font-size: 21px; letter-spacing: -0.01em; margin: 40px 0 12px; }
+h3 { font-size: 17px; margin: 24px 0 8px; }
+p, li { color: var(--text-secondary); }
+strong { color: var(--text); }
+
+.updated { font-size: 14px; color: var(--text-secondary); margin: 0; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  margin: 24px 0;
+}
+
+.card h2, .card h3 { margin-top: 0; }
+
+.emphasis { color: var(--text); font-weight: 600; }
+
+ul { padding-left: 22px; }
+li { margin: 6px 0; }
+
+a { color: var(--accent); }
+
+nav { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); font-size: 15px; }
+nav a { margin-right: 20px; }
+
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 15px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { color: var(--text); font-weight: 600; }
+td { color: var(--text-secondary); }
+
+footer { margin-top: 64px; font-size: 14px; color: var(--text-secondary); }
+
+/* Navigazione per lingua (aggiunta di NYDRAX): le cinque lingue sono link, non
+   un menu a tendina — devono funzionare anche senza JavaScript. */
+nav.lingue { margin-top: 0.75rem; font-size: 0.9rem; color: var(--secondario, #A1A1AA); }
+nav.lingue a { margin-right: 0.9rem; }
+nav a[aria-current] { font-weight: 600; }
