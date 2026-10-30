@@ -44,7 +44,11 @@ nell'app, si rigenerano le pagine — e il sito non può dire il contrario dell'
 
 ## Come si pubblicano
 
-1. Repository GitHub dedicato, per esempio `nydrax-legal`.
+**Stato al 30 ottobre 2026: pubblicato.** Repository `sdagostino777/nydrax-legal`, branch
+`main`, sorgente *Pages* = `/ (root)`, stato di build `built`. Tutte le ventisei
+pagine (venticinque più `style.css`) rispondono 200.
+
+1. Repository GitHub dedicato: `nydrax-legal` (già creato).
 2. Contenuto del repository: **tutto** il contenuto di questa cartella, `style.css` compreso,
    nella radice.
 3. GitHub → Settings → Pages → *Deploy from a branch* → `main` / `/ (root)`.
@@ -73,3 +77,15 @@ done
 
 E `./Scripts/verify-all.sh` controlla che le pagine ci siano per tutte e cinque le lingue e che
 il testo di ciascuna sia **davvero nella sua lingua** (non l'italiano copiato).
+
+**Ma nessun controllo locale vede un 404.** I file possono essere perfetti e il repository non
+esistere: è quello che è successo fino al 30 ottobre 2026, con venticinque indirizzi nella scheda
+App Store che rispondevano tutti 404 e `verify-all.sh` verde. L'unica verifica che conta è
+chiederlo al server:
+
+```bash
+python3 Scripts/verifica-sito-legale.py     # 26 indirizzi pubblicati
+```
+
+Esce con codice 1 e l'elenco dei rotti. Non è dentro `verify-all.sh` perché quella deve poter
+girare **senza rete**.

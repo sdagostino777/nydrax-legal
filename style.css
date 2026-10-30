@@ -87,8 +87,14 @@ td { color: var(--text-secondary); }
 
 footer { margin-top: 64px; font-size: 14px; color: var(--text-secondary); }
 
-/* Navigazione per lingua (aggiunta di NYDRAX): le cinque lingue sono link, non
-   un menu a tendina — devono funzionare anche senza JavaScript. */
-nav.lingue { margin-top: 0.75rem; font-size: 0.9rem; color: var(--secondario, #A1A1AA); }
-nav.lingue a { margin-right: 0.9rem; }
-nav a[aria-current] { font-weight: 600; }
+/* Navigazione (aggiunta di NYDRAX): in fondo alla pagina, come nelle altre app.
+   Le cinque lingue sono link e non un menu a tendina — devono funzionare anche
+   senza JavaScript, e devono dire in che lingua sono nella lingua giusta. */
+nav { font-size: 15px; }
+nav .lingue-etichetta {
+  display: block;
+  margin: 18px 0 6px;
+  color: var(--text-secondary);
+}
+nav a { margin-right: 18px; white-space: nowrap; }
+nav a[aria-current] { color: var(--text); font-weight: 600; }
